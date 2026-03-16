@@ -3,27 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Web World | AI Engine</title>
+    <title>Neural 3D World Engine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="ui-layer">
-        <h1>Neural Web World <small>v1.0</small></h1>
-        <div class="controls">
-            <button id="generateBtn">Generate Neural View</button>
-            <p>Status: <span id="status">Ready</span></p>
+    <div id="ui-container">
+        <div class="header">
+            <h1>NEURAL WORLD <small>v1.0</small></h1>
+            <p>Upload an image to reconstruct 3D space</p>
+        </div>
+
+        <div class="upload-section">
+            <label for="imageUpload" class="custom-file-upload">
+                📂 Choose Image
+            </label>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button id="reconstructBtn" disabled>Convert to 3D World</button>
+        </div>
+
+        <div id="status-panel">
+            <p>System Status: <span id="statusText">Awaiting Input...</span></p>
         </div>
     </div>
-    
-    <canvas id="world-canvas"></canvas>
+
+    <canvas id="three-canvas"></canvas>
 
     <script type="importmap">
         {
             "imports": {
-                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
             }
         }
     </script>
+    
     <script type="module" src="main.js"></script>
 </body>
 </html>
