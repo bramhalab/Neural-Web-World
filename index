@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Web World | AI Engine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="ui-layer">
+        <h1>Neural Web World <small>v1.0</small></h1>
+        <div class="controls">
+            <button id="generateBtn">Generate Neural View</button>
+            <p>Status: <span id="status">Ready</span></p>
+        </div>
+    </div>
+    
+    <canvas id="world-canvas"></canvas>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+            }
+        }
+    </script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
