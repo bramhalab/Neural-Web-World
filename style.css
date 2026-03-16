@@ -1,45 +1,125 @@
+/* Core Reset */
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #050505;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #020202; /* Deep Black for 3D depth */
+    font-family: 'Orbitron', 'Segoe UI', sans-serif; /* Futuristic font */
 }
 
-#ui-layer {
+/* 3D Canvas - Ye background mein rahega */
+#three-canvas {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* UI Container - Glassmorphism Effect */
+#ui-container {
+    position: absolute;
+    top: 30px;
+    left: 30px;
     z-index: 10;
-    color: #00ffcc;
-    pointer-events: none;
+    width: 320px;
+    padding: 25px;
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(15px); /* Blurry background */
+    border: 1px solid rgba(0, 255, 204, 0.3);
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
 }
 
-h1 { text-shadow: 0 0 10px #00ffcc; margin: 0; }
-
-.controls {
-    margin-top: 20px;
-    pointer-events: auto;
+.header h1 {
+    font-size: 22px;
+    color: #00ffcc;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00ffcc;
 }
 
-button {
-    background: transparent;
-    border: 1px solid #00ffcc;
-    color: #00ffcc;
-    padding: 10px 20px;
+.header p {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+/* Upload Section */
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 12px;
+    text-align: center;
+    background: rgba(0, 255, 204, 0.1);
+    border: 1px dashed #00ffcc;
+    border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 14px;
+    color: #00ffcc;
+}
+
+.custom-file-upload:hover {
+    background: rgba(0, 255, 204, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+}
+
+input[type="file"] {
+    display: none; /* Hide original button */
+}
+
+/* Reconstruct Button */
+#reconstructBtn {
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4s;
+    opacity: 0.5; /* Disabled by default */
+}
+
+#reconstructBtn:not(:disabled) {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+}
+
+#reconstructBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    background: #fff;
+}
+
+/* Status Panel */
+#status-panel {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+}
+
+#statusText {
+    color: #ff00ff; /* Processing color */
     font-weight: bold;
 }
 
-button:hover {
-    background: #00ffcc;
-    color: #000;
-    box-shadow: 0 0 20px #00ffcc;
-}
-
-#world-canvas {
-    display: block;
+/* Responsive UI */
+@media (max-width: 480px) {
+    #ui-container {
+        width: 80%;
+        left: 5%;
+        top: 20px;
+    }
 }
